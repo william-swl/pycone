@@ -1,5 +1,5 @@
 """
-The pycone package provides useful functions
+The pycones package provides useful functions
 """
 
 

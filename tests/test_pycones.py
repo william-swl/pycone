@@ -1,4 +1,4 @@
-from pycone import *
+from pycones import *
 
 
 def test_flatten():

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pycone"
+name = "pycones"
 version = "0.1.0"
 description = ""
 authors = ["william <william_swl@163.com>"]
