@@ -1,7 +1,5 @@
 # pycones
 
- > Easily extend JSON to encode and decode arbitrary Python objects.
-
 [![PyPI Version][pypi-image]][pypi-url]
 
 ...
