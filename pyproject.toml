@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pycones"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["william <william_swl@163.com>"]
 readme = "README.md"
@@ -18,3 +18,16 @@ tox = "^4.6.3"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.bumpver]
+current_version = "0.1.1"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'version = "{version}"',
+]
+"pycones/__init__.py" = [
+    '__version__ = "{version}"',
+]

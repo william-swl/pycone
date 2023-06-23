@@ -2,6 +2,7 @@
 The pycones package provides useful functions
 """
 
+__version__ = "0.1.1"
 
 def flatten(lst):
     """
