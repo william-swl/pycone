@@ -2,3 +2,7 @@ node_modules/
 package-lock.json
 package.json
 .ipynb_checkpoints/
+dist/
+.pytest_cache/
+__pycache__/
+.tox/
