@@ -60,4 +60,5 @@ def nb_kernel_switch(notebook_path, kernel="python"):
             "pygments_lexer": "ipython3",
         }
 
-    json.dump(notebook, notebook_path)
+    with open(notebook_path, 'w') as f:
+        json.dump(notebook, f)
