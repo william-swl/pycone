@@ -25,3 +25,9 @@ flatten([1, 2, [3, [4, 5]]])
 list_join(list("abc"), list("def"), sep=",")
 # "a,b,c,d,e,f"
 ```
+
+- switch jupyter kernel into python or r
+
+```python
+nb_kernel_switch(notebook_path, kernel='python')
+```
