@@ -81,6 +81,7 @@ def dfs_to_dicts(df_list, key_list):
     for colname, row in df_list[0].to_dict().items():
         res[colname] = dict()
         for rowname, value in row.items():
+            res[colname][rowname] = dict()
             for i, res_key in enumerate(key_list):
-                res[colname][res_key] = df_list[i].loc[rowname, colname]
+                res[colname][rowname][res_key] = df_list[i].loc[rowname, colname]
     return res
