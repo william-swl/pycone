@@ -3,7 +3,7 @@ The pycones package provides useful functions
 """
 import json
 
-__version__ = "0.1.3"
+__version__ = "0.1.6"
 
 
 def flatten(lst):
@@ -27,7 +27,7 @@ def list_join(*args, sep=""):
     return res
 
 
-def nb_kernel_switch(notebook_path, kernel="python"):
+def nb_kernel_switch(notebook_path, out_path, kernel="python"):
     """
     switch jupyter kernel into python or r
     """
@@ -49,7 +49,8 @@ def nb_kernel_switch(notebook_path, kernel="python"):
         }
     elif kernel == "python":
         notebook["metadata"]["kernelspec"]["name"] = "python3"
-        notebook["metadata"]["kernelspec"]["display_name"] = "Python 3 (ipykernel)"
+        notebook["metadata"]["kernelspec"]["display_name"] = \
+                "Python 3 (ipykernel)"
         notebook["metadata"]["kernelspec"]["language"] = "python"
         notebook["metadata"]["language_info"] = {
             "codemirror_mode": {"name": "ipython", "version": 3},
@@ -60,5 +61,26 @@ def nb_kernel_switch(notebook_path, kernel="python"):
             "pygments_lexer": "ipython3",
         }
 
-    with open(notebook_path, 'w') as f:
+    with open(out_path, "w") as f:
         json.dump(notebook, f)
+
+
+def dfs_to_dicts(df_list, key_list):
+    """
+    trans dataframes which have same rownames and colnames into dicts
+    """
+    # same length check
+    assert len(df_list) == len(key_list)
+
+    # same colnames and rownames check
+    for i in range(1, len(df_list)):
+        assert all(df_list[i].columns == df_list[0].columns)
+        assert all(df_list[i].index == df_list[0].index)
+
+    res = dict()
+    for colname, row in df_list[0].to_dict().items():
+        res[colname] = dict()
+        for rowname, value in row.items():
+            for i, res_key in enumerate(key_list):
+                res[colname][res_key] = df_list[i].loc[rowname, colname]
+    return res
