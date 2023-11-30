@@ -2,8 +2,10 @@
 The pycones package provides useful functions
 """
 import json
+import math
+import numpy as np
 
-__version__ = "0.1.6"
+__version__ = "0.1.8"
 
 
 def flatten(lst):
@@ -85,3 +87,18 @@ def dfs_to_dicts(df_list, key_list):
             for i, res_key in enumerate(key_list):
                 res[colname][rowname][res_key] = df_list[i].loc[rowname, colname]
     return res
+
+
+def signif_number(x: float, digits: int = 2):
+    """
+    round a number to significant digits
+    """
+    # return None, np.nan
+    if not x or np.isnan(x):
+        return x
+    
+    x = float(x)
+    digits = int(digits)
+    digits = -int(math.floor(math.log10(abs(x)))) + (digits - 1)
+
+    return round(x, digits)
