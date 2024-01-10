@@ -4,8 +4,9 @@ The pycones package provides useful functions
 import json
 import math
 import numpy as np
+import itertools
 
-__version__ = "0.1.8"
+__version__ = "0.1.10"
 
 
 def flatten(lst):
@@ -102,3 +103,10 @@ def signif_number(x: float, digits: int = 2):
     digits = -int(math.floor(math.log10(abs(x)))) + (digits - 1)
 
     return round(x, digits)
+
+
+def concat_list(x, y):
+    """
+    concat two lists with None tolerance
+    """
+    return list(itertools.chain.from_iterable((x or [], y or [])))

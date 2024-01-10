@@ -27,3 +27,7 @@ def test_signif_number():
 
     assert signif_number(None) == None
     assert np.isnan(signif_number(np.nan))
+
+def test_concat_list():
+    assert concat_list([1, 2, 3], [4, 5, 6]) == [1, 2, 3, 4, 5, 6]
+    assert concat_list([1, 2, 3], None) == [1, 2, 3]

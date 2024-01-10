@@ -37,3 +37,11 @@ nb_kernel_switch(notebook_path, kernel='python')
 ```python
 signif_number(1.232, 2)
 ```
+
+- concat two lists with None tolerance
+
+```python
+concat_list([1,2,3], None)
+
+concat_list([1,2,3], [4,5,6])
+```
